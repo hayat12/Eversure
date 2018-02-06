@@ -1,0 +1,53 @@
+<div ng-controller="MainFormController as formVm">
+	<div id="navbar" class="pt-2 pb-2 bg-theme-trans-white">
+		<div class="container">
+			<div class="row d-flex align-items-center">
+				<div class="col-12 col-sm-6">
+					<img src="static/img/logo.png" width="300" height="80" class="img-fluid">
+				</div>
+				<div class="col-6 justify-content-end d-none d-sm-flex">
+					<div class="navbar-promo-price text-center text-white d-flex align-items-center bg-theme-blue">
+						<div class="w-100">
+							<span class="h4">&pound;9.99</span> <br>
+							<span>monthly</span>
+						</div>
+					</div>
+					<div class="navbar-promo-price text-center text-white d-flex align-items-center bg-theme-blue ml-3">
+						<div class="w-100">
+							<span class="h4">&pound;109.89</span> <br>
+							<span>yearly</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-4 mt-3 mb-3">
+				<div id="form-progress-bar" class="row text-center text-theme-blue text-uppercase small font-weight-bold">
+					<div class="col-4" ng-class="{'active': (formVm.progressActiveIndex >= 0)}">
+						<div class="form-progress-bar-mark d-inline-block bg-theme-orange"></div>
+						<div class="form-progress-bar-text mt-1">Gadget</div>
+					</div>
+					<div class="col-4" ng-class="{'active': (formVm.progressActiveIndex >= 1)}">
+						<div class="form-progress-bar-mark d-inline-block bg-theme-orange"></div>
+						<div class="form-progress-bar-text mt-1">You</div>
+					</div>
+					<div class="col-4" ng-class="{'active': (formVm.progressActiveIndex >= 2)}">
+						<div class="form-progress-bar-mark d-inline-block bg-theme-orange"></div>
+						<div class="form-progress-bar-text mt-1">Purchase</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="ng-hide pb-5" ng-show="formVm.isReady">
+			<div ng-repeat="tmpl in formVm.stepTemplateList track by $index">
+				<div ng-include="tmpl" ng-if="$index === formVm.stepActiveIndex"></div>
+			</div>
+		</div>
+	</div>
+	
+</div>

@@ -1,0 +1,120 @@
+<div ng-controller="PersonalDetailsController as vm">
+	<h2>Please Tell Us About Yourself.</h2>
+	
+	<form name="form" ng-submit="vm.submit(form)" novalidate>
+		<div class="row">
+			<div class="col-12 col-md-8">
+				<div class="row">
+					<div class="col-12 col-md">
+						<div class="form-group">
+							<label>Name</label>
+							<input type="text" name="name" class="form-control" required
+								ng-model="vm.name"
+								ng-pattern="/^[A-z ]+$/">
+							
+							<div class="invalid-feedback" ng-messages="form.name.$error">
+								<div ng-message="required">Name is required</div>
+								<div ng-message="pattern">Only alphabets and spaces allowed</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md">
+						<div class="form-group">
+							<label>Surname</label>
+							<input type="text" name="surname" class="form-control" required
+								ng-model="vm.surname"
+								ng-pattern="/^[A-z ]+$/">
+							
+							<div class="invalid-feedback" ng-messages="form.surname.$error">
+								<div ng-message="required">Surname is required</div>
+								<div ng-message="pattern">Only alphabets and spaces allowed</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-12 col-md">
+						<div class="form-group">
+							<label>Email</label>
+							<input type="email" name="emailAddress" class="form-control" required
+								ng-model="vm.emailAddress">
+							
+							<div class="invalid-feedback" ng-messages="form.emailAddress.$error">
+								<div ng-message="required">Email is required</div>
+								<div ng-message="email">Email is invalid</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md">
+						<div class="form-group">
+							<label>Phone</label>
+							<input type="text" name="phone" class="form-control" required
+								ng-model="vm.phone">
+							
+							<div class="invalid-feedback" ng-messages="form.phone.$error">
+								<div ng-message="required">Phone is required</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-12 col-md">
+						<div class="form-group">
+							<label>Post Code</label>
+							<input type="text" name="postcode" class="form-control" required
+								ng-model="vm.postcode">
+							
+							<div class="invalid-feedback" ng-messages="form.postcode.$error">
+								<div ng-message="required">Post Code is required</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md">
+						<div class="form-group">
+							<label>Address</label>
+							<input type="text" name="address" class="form-control" required
+								ng-model="vm.address">
+							
+							<div class="invalid-feedback" ng-messages="form.address.$error">
+								<div ng-message="required">Address is required</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-12 col-md-6">
+						<div class="form-group">
+							<label>Date of Birth</label>
+							<div class="input-group" moment-picker="vm.dateOfBirth"
+								max-date="vm.momentPicker.dateOfBirth.max"
+								min-date="vm.momentPicker.dateOfBirth.min">
+								
+								<input type="text" name="dateOfBirth" class="form-control" readonly required
+									ng-model="vm.dateOfBirth"
+									ng-model-options="{ updateOn: 'blur' }"
+									ng-custom-class-on-error="is-invalid">
+								
+								<div class="input-group-append">
+									<button class="btn btn-primary rounded-right" type="button">
+										<i class="icon-calendar"></i>
+									</button>
+								</div>
+								
+								<div class="invalid-feedback" ng-messages="form.dateOfBirth.$error">
+									<div ng-message="required">Date of Birth is required</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<step-form-buttons show-previous="true" show-next="true"
+			on-previous="formVm.goPreviousStep()"></step-form-buttons>
+	</form>
+</div>

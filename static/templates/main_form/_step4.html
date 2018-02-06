@@ -1,0 +1,48 @@
+<div ng-controller="SummaryController as vm">
+	<h2>What You Want To Protect</h2>
+	
+	<div hidden="">
+		{{ vm.gadgetList | json }} <br>
+		{{ vm.personalData | json }}
+	</div>
+	
+	<div class="row">
+		<div class="col-12 col-md-8">
+			<div class="bg-theme-trans-white custom-panel px-3 mb-5">
+				<ul id="gadget-details-list" class="list-unstyled">
+					<li class="py-1" ng-repeat="gd in vm.gadgetList track by $index">
+						<table>
+							<tr>
+								<td>
+									<div class="d-inline-block bg-theme-blue text-white text-center gadget-details-list-icon">
+										<i class="icon-screen-smartphone h3 mb-0"></i>
+									</div>
+								</td>
+								<td class="px-2">
+									{{ gd.type.name }} {{ gd.make.name }}
+								</td>
+							</tr>
+						</table>
+					</li>
+				</ul>
+				
+				<p>
+					{{ vm.personalData.name }} {{ vm.personalData.surname }} <br>
+					{{ vm.personalData.address }} <br>
+					{{ vm.personalData.postcode }} <br>
+					Tel: {{ vm.personalData.phone }}
+				</p>
+				
+				<button type="button" class="btn btn-secondary btn-sm" ng-click="formVm.goPreviousStep()">
+					Amend Your Quote
+				</button>
+			</div>
+		</div>
+	</div>
+	
+	<step-form-buttons show-previous="true" show-next="true"
+		on-previous="formVm.goPreviousStep()" on-next="formVm.goNextStep()"></step-form-buttons>
+		
+	<!-- <form name="form" ng-submit="vm.submit(form)" novalidate>
+	</form> -->
+</div>

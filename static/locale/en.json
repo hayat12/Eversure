@@ -1,0 +1,7 @@
+{
+	"home": {
+		"heading": "A form test with <b>AngularJS</b>",
+		"body": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur debitis itaque, enim dolores, vel id optio quia, sapiente explicabo iusto unde? Consequuntur placeat dignissimos accusamus accusantium illo repudiandae vel nisi.</p><p>Ullam deserunt deleniti repudiandae optio, omnis architecto eum, obcaecati, fuga pariatur et ipsam eius libero voluptatum cumque quaerat quos exercitationem illo, nisi. Vel quidem, sed. At optio magnam repudiandae earum.</p><p>We have a simple translation going on in this page.</p>",
+		"start_button": "Click here to begin"
+	}
+}

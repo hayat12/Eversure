@@ -1,0 +1,176 @@
+/* fixing select2 into bootstrap
+======================================== */
+
+.ui-select-container {
+	display: block;
+}
+
+.ui-select-container > .ui-select-match {
+	padding: .375rem .75rem;
+	height: calc(2.25rem + 2px);
+	background-image: none;
+	background-color: #fff;
+	border-color: #ced4da;
+	box-shadow: none;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.ui-select-container.select2-container-active > .ui-select-match {
+	border-color: #80bdff;
+	outline: 0;
+	box-shadow: 0 0 0 .2rem rgba(0, 123, 255, 0.3);
+}
+
+.ng-submitted .ui-select-container.ng-invalid > .ui-select-match,
+.ui-select-container.ng-invalid.ng-touched > .ui-select-match {
+	border-color: #dc3545;
+}
+
+.ng-submitted .ui-select-container.ng-invalid.select2-container-active > .ui-select-match,
+.ui-select-container.ng-invalid.ng-touched.select2-container-active > .ui-select-match {
+	border-color: #dc3545;
+	box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.ui-select-container > .ui-select-dropdown {
+	border-color: #80bdff !important;
+	box-shadow: none !important;
+}
+
+.select2-results .ui-select-choices-row.select2-highlighted {
+	background-color: #007BFF;
+}
+
+.select2-container .select2-choice .select2-arrow,
+.select2-container .select2-choice .select2-arrow b {
+	background-image: none;
+	background-color: transparent;
+}
+.select2-container .select2-choice .select2-arrow {
+	border-color: transparent;
+}
+.select2-container .select2-choice .select2-arrow b {
+	position: relative;
+}
+.select2-container .select2-choice .select2-arrow b:before {
+	position: absolute;
+	content: " ";
+	top: 50%;
+	right: 5px;
+	margin-top: -3px;
+	border-style: solid;
+	border-color: #444 transparent transparent;
+	border-width: 6px 5px 0;
+}
+.ui-select-choices-row:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.select2-search input {
+	border-radius: .25rem;
+	background-image: none;
+	font-family: inherit;
+}
+
+/* angular invalid classes
+======================================== */
+
+.ng-submitted .form-control.ng-invalid + .invalid-feedback,
+.form-control.ng-invalid.ng-touched + .invalid-feedback,
+.ng-submitted .ui-select-container.ng-invalid + .invalid-feedback,
+.ui-select-container.ng-invalid.ng-touched + .invalid-feedback {
+	display: block;
+}
+
+.ng-submitted .form-control.ng-invalid,
+.form-control.ng-invalid.ng-touched {
+	border-color: #dc3545;
+}
+
+.ng-submitted .form-control.ng-invalid:focus,
+.form-control.ng-invalid.ng-touched:focus {
+	border-color: #dc3545;
+	box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+html, body {height: 100%;}
+body {
+	overflow-y: scroll;
+	background-image: url('../img/gadget_bg.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.td-none {text-decoration: none;}
+.td-none:hover {text-decoration: none;}
+
+.bg-theme-blue {background-color: #2A4E9F;}
+.text-theme-blue {color: #2A4E9F;}
+.bg-theme-orange {background-color: #FD7B17;}
+.text-theme-orange {color: #FD7B17;}
+
+.bg-theme-trans-white {background-color: rgba(255, 255, 255, 0.6);}
+.bg-theme-silver {background-color: #AE9F9F;}
+.bg-theme-gold {background-color: #E29F33;}
+
+#navbar {
+	/*background-color: rgba(255, 255, 255, 0.6);*/
+}
+
+.navbar-promo-price {
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+
+#form-progress-bar {}
+#form-progress-bar > div {position: relative;}
+#form-progress-bar > div:before {
+	content: " ";
+	position: absolute;
+	display: block;
+	top: 24px;
+	left: -50%;
+	width: 100%;
+	height: 2px;
+	background-color: rgba(42, 78, 159, 0.5);
+	z-index: -1;
+}
+#form-progress-bar > div:first-child:before {
+	display: none;
+}
+.form-progress-bar-mark {
+	width: 10px;
+	height: 10px;
+	margin: 20px;
+	border-radius: 50%;
+	transition: 0.2s ease box-shadow;
+}
+
+.active > .form-progress-bar-mark {
+	box-shadow: 0 0 0 20px rgba(42, 78, 159, 0.5);
+}
+
+.gadget-details-list-icon {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+.gadget-details-list-icon > i {
+	line-height: 50px;
+}
+
+#cover-table {}
+#cover-table td {padding: 5px 15px;}
+
+.cover-item {
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+}
+
+.custom-panel {
+	border-radius: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}

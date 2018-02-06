@@ -1,0 +1,90 @@
+<div ng-controller="CoverDetailsController as vm">
+	<h2>Choose The Best Cover For You</h2>
+	
+	<div class="row">
+		<div class="col-12 col-md-8">
+			<div id="cover-table" class="mb-5 bg-theme-trans-white custom-panel">
+				<table class="w-100">
+					<tr class="text-center">
+						<td style="width: 60%;"></td>
+						<td style="width: 20%;">
+							<div class="cover-item bg-theme-silver d-flex align-items-center text-white font-weight-bold">
+								<div class="w-100">
+									&pound;99.99 <br>
+									<small>or</small> <br>
+									&pound;9.99 <br>
+									<small>monthly</small>
+								</div>
+							</div>
+						</td>
+						<td style="width: 20%;">
+							<div class="cover-item bg-theme-gold d-flex align-items-center text-white font-weight-bold">
+								<div class="w-100">
+									&pound;115.99 <br>
+									<small>or</small> <br>
+									&pound;15.99 <br>
+									<small>monthly</small>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>Excess</td>
+						<td class="text-center font-weight-bold text-success">&pound;75</td>
+						<td class="text-center font-weight-bold text-success">&pound;50</td>
+					</tr>
+					<tr>
+						<td>Accidental Damage</td>
+						<td class="text-center font-weight-bold text-success">Yes</td>
+						<td class="text-center font-weight-bold text-success">Yes</td>
+					</tr>
+					<tr>
+						<td>Theft</td>
+						<td class="text-center font-weight-bold text-success">Yes</td>
+						<td class="text-center font-weight-bold text-success">Yes</td>
+					</tr>
+					<tr>
+						<td>Loss</td>
+						<td class="text-center font-weight-bold text-danger">No</td>
+						<td class="text-center font-weight-bold text-success">Yes</td>
+					</tr>
+					<tr>
+						<td>Mechanical Breakdown</td>
+						<td class="text-center font-weight-bold text-danger">No</td>
+						<td class="text-center font-weight-bold text-success">Yes</td>
+					</tr>
+					<tr>
+						<td>Unauthorised Use</td>
+						<td class="text-center font-weight-bold text-success">Yes</td>
+						<td class="text-center font-weight-bold text-success">Yes</td>
+					</tr>
+					<tr>
+						<td>Worldwide Cover</td>
+						<td class="text-center font-weight-bold text-success">30 Days</td>
+						<td class="text-center font-weight-bold text-success">90 Days</td>
+					</tr>
+				</table>
+			</div>
+			
+		</div>
+	</div>
+	
+	<form name="form" novalidate>
+		<div class="row mb-3">
+			<div class="col-12 col-md-4">
+				<button type="button" class="btn btn-block btn-lg btn-default" ng-click="vm.setCover('silver')">
+					Buy Silver
+				</button>
+			</div>
+			<div class="col-12 col-md-4">
+				<button type="button" class="btn btn-block btn-lg btn-primary" ng-click="vm.setCover('gold')">
+					Buy Gold
+				</button>
+			</div>
+		</div>
+		
+		<step-form-buttons show-previous="true" show-next="false"
+			on-previous="formVm.goPreviousStep()"></step-form-buttons>
+	</form>
+	
+</div>

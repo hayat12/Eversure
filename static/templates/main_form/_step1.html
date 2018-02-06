@@ -1,0 +1,116 @@
+<div ng-controller="GadgetDetailsController as vm">
+	<div ng-hide="vm.gadgetList.length > 0">
+		<h2>Protect Your Gadget in Seconds</h2>
+		<p>Select a gadget to get a quote</p>
+	</div>
+	
+	<div class="ng-hide" ng-show="vm.gadgetList.length > 0">
+		<ul id="gadget-details-list" class="list-inline">
+			<li class="list-inline-item" ng-repeat="gd in vm.gadgetList track by $index">
+				<table>
+					<tr>
+						<td>
+							<div class="d-inline-block bg-theme-blue text-white text-center gadget-details-list-icon">
+								<i class="icon-screen-smartphone h3 mb-0"></i>
+							</div>
+						</td>
+						<td class="px-2">
+							{{ gd.type.name }} {{ gd.make.name }} <br>
+							&pound;9.99
+						</td>
+						<td class="pl-2 pr-5">
+							<a href="javascript:void(0)" class="td-none text-dark" ng-click="vm.removeGadget($index)">
+								<i class="icon-trash h3 mb-0"></i>
+							</a>
+						</td>
+					</tr>
+				</table>
+			</li>
+		</ul>
+	</div>
+	
+	<form name="form" ng-submit="vm.submit(form)" novalidate>
+		<div class="row">
+			<div class="col-12 col-md-4">
+				<div class="form-group">
+					<label>Type</label>
+					<ui-select ng-model="vm.type" theme="select2" on-select="vm.typeChange(vm.type)" name="{{ 'type_' + $index }}" required>
+						<ui-select-match placeholder="Select a gadget type">{{ $select.selected.name }}</ui-select-match>
+						<ui-select-choices repeat="item as item in vm.opt.type | filter: $select.search">
+							<div ng-bind-html="item.name | highlight: $select.search"></div>
+						</ui-select-choices>
+					</ui-select>
+					<div class="invalid-feedback" ng-messages="form['brand_' + $index].$error">
+						<div ng-message="required">Car Brand is required</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-4">
+				<div class="form-group">
+					<label>Make</label>
+					<ui-select ng-model="vm.make" theme="select2" name="{{ 'make_' + $index }}" required>
+						<ui-select-match placeholder="Select a gadget make">{{ $select.selected.name }}</ui-select-match>
+						<ui-select-choices repeat="item as item in vm.opt.make | filter: $select.search">
+							<div ng-bind-html="item.name | highlight: $select.search"></div>
+						</ui-select-choices>
+					</ui-select>
+					<div class="invalid-feedback" ng-messages="form['brand_' + $index].$error">
+						<div ng-message="required">Car Brand is required</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-md-4">
+				<div class="form-group">
+					<label>Purchase Date</label>
+					<div class="input-group" moment-picker="vm.purchaseDate"
+						format="MMMM YYYY"
+						max-view="month"
+						max-date="vm.momentPicker.purchaseDate.max"
+						min-date="vm.momentPicker.purchaseDate.min">
+						
+						<input type="text" name="purchaseDate" class="form-control" readonly required
+							ng-model="vm.purchaseDate"
+							ng-model-options="{ updateOn: 'blur' }">
+						
+						<div class="input-group-append">
+							<button class="btn btn-primary rounded-right" type="button">
+								<i class="icon-calendar"></i>
+							</button>
+						</div>
+						
+						<div class="invalid-feedback" ng-messages="form.purchaseDate.$error">
+							<div ng-message="required">Date of Birth is required</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-4">
+				<div class="form-group">
+					<label>Condition</label> <br>
+					<div class="btn-group btn-group-toggle">
+						<label class="btn" ng-class="{'btn-primary': (vm.condition == 'new'), 'btn-secondary': (vm.condition != 'new')}">
+							<input type="radio" name="condition" ng-model="vm.condition" value="new">
+							New
+						</label>
+						<label class="btn" ng-class="{'btn-primary': (vm.condition == 'refurbished'), 'btn-secondary': (vm.condition != 'refurbished')}">
+							<input type="radio" name="condition" ng-model="vm.condition" value="refurbished">
+							Refurbished
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<button type="button" class="btn btn-default btn-lg" ng-click="vm.addGadget(form)">
+				<i class="icon-plus"></i>
+				Add another gadget?
+			</button>
+		</div>
+		
+		<step-form-buttons show-previous="false" show-next="true"
+			></step-form-buttons>
+	</form>
+</div>
